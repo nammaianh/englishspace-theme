@@ -1,0 +1,12 @@
+name: 'Danh sách lớp'
+items:
+    -
+        title: 'Đăng ký học'
+        type: url
+        url: 'https://docs.google.com/forms/d/1zJ5sTp4r3Y59PoKIyj-P6IUImuWTjAc66XJ7k36QGwc/viewform'
+        code: ''
+    -
+        title: 'Báo cáo giảng dạy'
+        type: url
+        url: 'https://docs.google.com/a/osdesign.vn/forms/d/1Z-8kdnPRDs_dvWIz8a0TNXuDCUKXmPR9I6ZXln6gNqA/viewform'
+        code: ''

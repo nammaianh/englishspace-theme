@@ -1,0 +1,145 @@
+name: 'Main Navigation'
+items:
+    -
+        title: 'Trang chủ'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: home-page
+        cmsPage: ''
+        replace: ''
+    -
+        title: 'Giới thiệu'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        items:
+            -
+                title: 'Tầm nhìn & sứ mệnh'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+            -
+                title: 'Đội ngũ giáo viên'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                items:
+                    -
+                        title: 'Team 1'
+                        nesting: ''
+                        type: url
+                        url: /
+                        code: ''
+                        reference: ''
+                        cmsPage: ''
+                        replace: ''
+                    -
+                        title: 'Team 2'
+                        nesting: ''
+                        type: url
+                        url: /
+                        code: ''
+                        reference: ''
+                        cmsPage: ''
+                        replace: ''
+                    -
+                        title: 'Team ...'
+                        nesting: ''
+                        type: url
+                        url: /
+                        code: ''
+                        reference: ''
+                        cmsPage: ''
+                        replace: ''
+                    -
+                        title: 'Team X'
+                        nesting: ''
+                        type: url
+                        url: /
+                        code: ''
+                        reference: ''
+                        cmsPage: ''
+                        replace: ''
+            -
+                title: 'Hoạt động của trung tâm'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+    -
+        title: 'Khóa học'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+    -
+        title: 'Lịch khai giảng'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+    -
+        title: 'Chia sẻ kinh nghiệm'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        items:
+            -
+                title: 'Cảm nhận học viên'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+    -
+        title: Video
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+    -
+        title: 'Liên lạc'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: contact
+        cmsPage: ''
+        replace: ''
+    -
+        title: 'Đăng ký học'
+        type: cms-page
+        code: ''
+        reference: dang-ky-hoc
