@@ -1,0 +1,514 @@
+/*-- Element Display Classes --*/
+/*-----------------------------*/
+
+.block {
+    display: block;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.static {
+    position: static;
+}
+
+/*-- Special Position --*/
+/*----------------------*/
+
+.vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*-- RESPONSIVE Alignment --*/
+/*--------------------------*/
+
+.text-left-not-xs, .text-left-not-sm, .text-left-not-md, .text-left-not-lg {
+    text-align: left;
+}
+.text-center-not-xs, .text-center-not-sm, .text-center-not-md, .text-center-not-lg {
+    text-align: center;
+}
+.text-right-not-xs, .text-right-not-sm, .text-right-not-md, .text-right-not-lg {
+    text-align: right;
+}
+.text-justify-not-xs, .text-justify-not-sm, .text-justify-not-md, .text-justify-not-lg {
+    text-align: justify;
+}
+
+@media (max-width: 767px) {
+    .text-left-not-xs, .text-center-not-xs, .text-right-not-xs, .text-justify-not-xs {
+        text-align: inherit;
+    }
+    .text-left-xs {
+        text-align: left;
+    }
+    .text-center-xs {
+        text-align: center;
+    }
+    .text-right-xs {
+        text-align: right;
+    }
+    .text-justify-xs {
+        text-align: justify;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .text-left-not-sm, .text-center-not-sm, .text-right-not-sm, .text-justify-not-sm {
+        text-align: inherit;
+    }
+    .text-left-sm {
+        text-align: left;
+    }
+    .text-center-sm {
+        text-align: center;
+    }
+    .text-right-sm {
+        text-align: right;
+    }
+    .text-justify-sm {
+        text-align: justify;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
+        text-align: inherit;
+    }
+    .text-left-md {
+        text-align: left;
+    }
+    .text-center-md {
+        text-align: center;
+    }
+    .text-right-md {
+        text-align: right;
+    }
+    .text-justify-md {
+        text-align: justify;
+    }
+}
+@media (min-width: 1200px) {
+    .text-left-not-lg, .text-center-not-lg, .text-right-not-lg, .text-justify-not-lg {
+        text-align: inherit;
+    }
+    .text-left-lg {
+        text-align: left;
+    }
+    .text-center-lg {
+        text-align: center;
+    }
+    .text-right-lg {
+        text-align: right;
+    }
+    .text-justify-lg {
+        text-align: justify;
+    }
+}
+
+/*-- Text Alignment Classes --*/
+/*----------------------------*/
+
+.text-center {
+    text-align: center;
+}
+
+/*-- Color Classes --*/
+/*-------------------*/
+
+.bg-light-yellow {
+    background-color: #F6F792;
+}
+.bg-night-blue {
+    background-color: #333745;
+}
+.bg-day-blue {
+    background-color: #77C4D3;
+}
+.bg-light-blue {
+    background-color: #DAEDE2;
+}
+.bg-crimson {
+    background-color: #EA2E49;
+}
+
+.text-white {
+    color: #FFF;
+}
+.text-light-yellow {
+    color: #F6F792;
+}
+.text-night-blue {
+    color: #333745;
+}
+.text-day-blue {
+    color: #77C4D3;
+}
+.text-light-blue {
+    color: #DAEDE2;
+}
+.text-crimson {
+    color: #EA2E49;
+}
+
+.text-shadow-light-yellow {
+    text-shadow: 0 0 4px #F6F792;
+}
+.text-shadow-night-blue {
+    text-shadow: 0 0 4px #333745;
+}
+.text-shadow-day-blue {
+    text-shadow: 0 0 4px #77C4D3;
+}
+.text-shadow-light-blue {
+    text-shadow: 0 0 4px #DAEDE2;
+}
+.text-shadow-crimson {
+    text-shadow: 0 0 4px #EA2E49;
+}
+
+/*-- Size --*/
+/*----------*/
+
+.fit-width {
+    width: 100%;
+}
+
+/*-- Border Classes --*/
+/*--------------------*/
+
+.border-light-yellow {
+    border-color: #F6F792;
+}
+.border-night-blue {
+    border-color: #333745;
+}
+.border-day-blue {
+    border-color: #77C4D3;
+}
+.border-light-blue {
+    border-color: #DAEDE2;
+}
+.border-crimson {
+    border-color: #EA2E49;
+}
+
+/*-- Circle Shape --*/
+/*------------------*/
+
+.circle {
+    border-radius: 50%;
+}
+
+/*-- Text Style Modification --*/
+/*-----------------------------*/
+
+@font-face {
+    font-family: "Lato";
+    src: url("font/Lato/lato-medium.ttf");
+}
+@font-face {
+    font-family: "Lato Light";
+    src: url("font/Lato/lato-light.ttf");
+}
+
+body {
+    line-height: 2em;
+    font-family: "Lato", sans-serif;
+    background-color: #FFF;
+    color: #333745;
+}
+
+/*-- Home page's containers --*/
+/*----------------------------*/
+
+#learning-program-container,
+#asking-container,
+#featured-video-container,
+#latest-news-container {
+    padding-bottom: 30px;
+}
+
+/*-- Form Control Modification --*/
+/*-------------------------------*/
+
+textarea {
+    resize: vertical;
+}
+
+/*-- Header Brand Image --*/
+/*------------------------*/
+
+.brand img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+/*-- Navigation Bar --*/
+/*--------------------*/
+
+.main-nav-container {
+    padding: 0;
+}
+
+.main-nav-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+.main-nav-container li {
+    position: relative;
+}
+
+.main-nav-container a,
+.main-nav-container .btn-toggle-submenu {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+}
+.main-nav-container a:hover {
+    text-decoration: none;
+}
+
+#btnNav {
+    display: none;
+}
+
+/*.main-nav .btn-toggle-submenu {*/
+/*    display: none;*/
+/*}*/
+
+/*-- Navigation Bar Postion for Mobile and Tablet --*/
+/*--------------------------------------------------*/
+@media (max-width: 767px) {
+    #btnNav {
+        display: block;
+        margin: 15px auto;
+        border-radius: 0;
+    }
+    .main-nav li ul {
+        padding-left: 15px;
+    }
+    .main-nav .btn-toggle-submenu {
+        display: block;
+    }
+}
+
+/*-- Navigation Bar Position for Laptop --*/
+/*----------------------------------------*/
+@media (min-width: 768px) {
+    /*-- Center first-level menu items --*/
+    /*.main-nav {*/
+    /*    display: table;*/
+    /*    margin: 0 auto;*/
+    /*}*/
+    
+    /*.main-nav > ul {*/
+    /*    display: table-row;*/
+    /*}*/
+    
+    /*.main-nav > ul > li {*/
+    /*    display: table-cell;*/
+    /*    white-space: nowrap;*/
+    /*}*/
+    
+    .account-nav > ul > li,
+    .main-nav > ul > li {
+        float: left;
+    }
+    .main-nav-container a {
+        white-space: nowrap;
+    }
+    
+    /*-- Sub menu --*/
+    .account-nav li ul,
+    .main-nav li ul {
+        position: absolute;
+        display: none;
+        visibility: collapse;
+        
+        box-shadow: 0 0 1px #333;
+        
+        /* Narrower than the parent element will be ugly */
+        min-width: 100%;
+    }
+    .account-nav li:hover > ul,
+    .main-nav li:hover > ul {
+        display: block;
+        visibility: visible;
+    }
+    .account-nav > ul > li > ul,
+    .main-nav > ul > li > ul {
+        left: 0;
+        top: 100%;
+    }
+    .account-nav > ul > li > ul ul,
+    .main-nav > ul > li > ul ul {
+        left: 100%;
+        top: 0;
+    }
+    
+    .main-nav-container .btn-toggle-submenu {
+        display: none;
+    }
+    
+}
+
+/*-- Default Navigation Bar's Color --*/
+/*----------------------------------*/
+
+.main-nav-container {
+    background-color: #EA2E49;
+}
+.main-nav-container li > a {
+    color: #FFF;
+}
+.main-nav-container .btn-toggle-submenu:hover,
+.main-nav-container li > a:hover,
+.main-nav-container li > a:focus {
+    background-color: #666;
+    background-color: rgba(0,0,0,0.2);
+    color: #FFF;
+}
+.main-nav-container .active > a,
+.main-nav-container .active > a:hover,
+.main-nav-container .active > a:focus {
+    background-color: #333;
+    background-color: rgba(0,0,0,0.4);
+    color: #FFF;
+}
+
+.main-nav-container li > ul {
+    background-color: #EA2E49;
+}
+
+/*-- Featured Slider --*/
+/*---------------------*/
+
+#featured-slider-container {
+    padding: 0;
+}
+
+#featured-slider img {
+    width: 100%;
+}
+
+/*-- Learning Programs --*/
+/*-----------------------*/
+
+#learning-program-container {
+    padding: 30px 30px;
+}
+
+.learning-program img {
+    width: 100%;
+    transition: all 0.6s;
+}
+.learning-program img:hover {
+    transform: rotateZ(360deg);
+}
+
+/*@media (min-width: 1200px) {*/
+/*    .learning-program img {*/
+/*        padding: 0 15px;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 641px) and (max-width: 767px) {*/
+/*    .learning-program img {*/
+/*        padding: 15px 40px;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 481px) and (max-width: 640px) {*/
+/*    .learning-program img {*/
+/*        padding: 15px 15px;*/
+/*    }*/
+/*}*/
+
+.learning-program p {
+    padding-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*-- Form Controls --*/
+/*-------------------*/
+
+/*textarea.form-control,*/
+/*.form-control[type="text"],*/
+/*.form-control[type="password"],*/
+/*.form-control[type="email"],*/
+/*.form-control[type="phone"] {*/
+/*    border-radius: 0;*/
+/*    border-color: #333745;*/
+/*    color: #333745;*/
+/*}*/
+
+/*textarea.form-control:focus,*/
+/*.form-control[type="text"]:focus,*/
+/*.form-control[type="password"]:focus,*/
+/*.form-control[type="email"]:focus,*/
+/*.form-control[type="phone"]:focus{*/
+/*    border-radius: 0;*/
+/*    border-color: #77C4D3;*/
+/*    color: #77C4D3;*/
+/*    box-shadow: 0 0 2px #77C4D3;*/
+/*}*/
+
+/*-- Footer --*/
+/*------------*/
+
+footer {
+    color: white;
+}
+
+/*-- Blog Index Page --*/
+/*---------------------*/
+
+.posts-list-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.posts-list-container .post-description {
+    max-height: 10em;
+    overflow-y: hidden;
+}
+
+
+/*----------------------------------------------------*/
+/*-------------- BOOTSTRAP MODIFICATION --------------*/
+/*----------------------------------------------------*/
+
+.navbar-right {
+    margin: 0;
+}
+
+.btn {
+    border: none;
+    border-radius: 0;
+}
+
+.form-control {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    border-bottom: solid 1px #333745;
+    border-radius: 0;
+    box-shadow: none;
+}
+.form-control:focus {
+    box-shadow: none;
+}

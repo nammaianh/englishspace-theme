@@ -1,0 +1,35 @@
+description = "Status Form AJAX Request"
+==
+{% put scripts %}
+    <script>
+        $("#statusForm").on('submit', function()
+        {
+            // Disable the button
+            var button = $(this).find(":submit");
+            button.attr("disabled", "disabled")
+                  .text("Sending...");
+            
+            // Form submission with AJAX
+            $(this).request("onStatusFormSubmit", {
+                success : function(data)
+                {
+                    alert(data.message);
+                },
+                error   : function(jqxhr)
+                {
+                    alert("Exception on server");
+                    console.log(jqxhr);
+                },
+                complete: function()
+                {
+                    // Re-enable the button
+                    button.removeAttr("disabled")
+                          .text("Send");
+                }
+            });
+            
+            // Decline default form submission
+            return false;
+        });
+    </script>
+{% endput %}

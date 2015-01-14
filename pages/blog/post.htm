@@ -1,0 +1,84 @@
+title = "Blog Post"
+url = "/blog/post/:slug"
+layout = "Default"
+description = "Blog post's content page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/index"
+==
+<?php
+function onInit()
+{
+    $this['bodyId'] = 'post-page';
+}
+?>
+==
+{% put styles %}
+    <style>
+        #{{ bodyId }} .featured-image {
+            background-size: cover;
+        }
+        @media (max-width: 767px) {
+            #{{ bodyId }} .featured-image {
+                height: 200px;
+            }
+        }
+        @media (min-width: 768px) {
+            #{{ bodyId }} .featured-image {
+                height: 300px;
+            }
+        }
+        @media (min-width: 992px) {
+            #{{ bodyId }} .featured-image {
+                height: 400px;
+            }
+        }
+        @media (min-width: 1200px) {
+            #{{ bodyId }} .featured-image {
+                height: 500px;
+            }
+        }
+        #{{ bodyId }} .post-content * {
+            max-width: 100%;
+        }
+    </style>
+{% endput %}
+
+{#-- Set image URL to default if the current post have no featured images --#}
+{% if post.featured_images.isEmpty() %}
+    {% set imgUrl = 'http://placehold.it/600x400/EA2E49/333745&text=' ~ post.title %}
+{% else %}
+    {% set imgUrl = post.featured_images.first().getPath() %}
+{% endif %}
+
+{#-- Featured Image --#}
+<img class="fit-width" src="{{ imgUrl }}" alt="{{ post.title }}">
+
+<div class="container">
+    <div class="row">
+        {#-- Main Content --#}
+        <div class="col-sm-12 col-md-9">
+            {#-- Post Title --#}
+            <h1 class="text-center">
+                {{ post.title }}
+            </h1>
+            {#-- Post Content --#}
+            <div class="post-content text-justify">
+                {{ post.content|raw }}
+            </div>
+        </div>
+        {#-- Side Bar --#}
+        <div class="visible-md visible-lg col-md-3">
+            {#-- Form --#}
+            {% partial 'sidebar/form' %}
+        </div>
+    </div>
+</div>
+
+
+{#-- Comments Block --#}
+{% partial 'comments' columnClass='col-md-9' %}

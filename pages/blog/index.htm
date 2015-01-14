@@ -1,0 +1,107 @@
+title = "Blog"
+url = "/blog/:categorySlug?"
+layout = "Default"
+description = "Blog index page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :categorySlug }}"
+postsPerPage = "6"
+noPostsMessage = "No posts found"
+categoryPage = "blog/index"
+postPage = "blog/index"
+==
+<?php
+use RainLab\Blog\Models\Post;
+use RainLab\Blog\Models\Category;
+
+function onLoadMore()
+{
+    $postsPerPage = 6;
+    $orderedField = 'published_at';
+    $orderedDirection = 'desc';
+    $curPage = post('currentPage');
+    $categorySlug = $this->param('categorySlug');
+    
+    $skip = $postsPerPage * $curPage;
+    
+    // Query with category filtering
+    if ($categorySlug) {
+    
+        $category = Category::where('slug', $categorySlug)->first();
+        
+        // Total post of the requested category
+        $totalPostsCount = $category->posts()->count();
+        
+        $postsQuery = Post::isPublished()
+            ->orderBy($orderedField, $orderedDirection);
+        
+        $posts = (new Post())->scopeFilterCategories($postsQuery, [$category->id])
+            ->skip($skip)
+            ->take($postsPerPage)
+            ->get();
+        
+    }
+    // QUery WITHOUT category filtering
+    else {
+        $posts = Post::isPublished()
+            ->orderBy($orderedField, $orderedDirection)
+            ->skip($skip)
+            ->take($postsPerPage)
+            ->get();
+        
+        $totalPostsCount = Post::count();
+    }
+    
+    // Put the loaded posts in
+    // collection for partial to use
+    $this['posts'] = $posts;
+    
+    $remainingCount = $totalPostsCount - ($skip + $posts->count());
+    
+    return [
+        'remainingCount' => $remainingCount
+    ];
+}
+?>
+==
+{%
+    partial 'layout/page-image'
+    src = 'assets/images/english-space.png'|theme
+%}
+
+<div class="posts-list-container container">
+    {% partial 'blog/posts-list' posts = posts %}
+</div>
+
+<div class="container" style="margin-bottom: 30px;">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+                <button id="btnLoadMore"
+                        class="btn btn-lg btn-primary fit-width"
+                        data-request="onLoadMore"
+                        data-request-data="currentPage: currentPage"
+                        data-request-update="'blog/posts-list': '@.posts-list-container'"
+                        data-request-success="onLoadMoreSuccess(data)">Load More</button>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+    <script>
+        var currentPage = 1;
+        
+        function onLoadMoreSuccess(data)
+        {
+            if (data.remainingCount > 0) {
+                ++currentPage;
+            }
+            else {
+                $("#btnLoadMore").attr("disabled", "disabled").text("No More Posts");
+            }
+        }
+    </script>
+{% endput %}

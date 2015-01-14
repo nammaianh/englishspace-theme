@@ -1,0 +1,13 @@
+description = "Header block"
+
+[staticMenu mainNavigation]
+code = "main-navigation"
+==
+<header class="container-fluid brand-container bg-white">
+    <a href="/" class="brand">
+        <img src="{{ 'assets/images/brand.png'|theme }}"
+             alt="{% content 'brand' %}">
+    </a>
+</header>
+
+{% partial 'layout/nav' %}

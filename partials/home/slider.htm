@@ -1,0 +1,47 @@
+description = "Home page sliders (container featured posts)"
+==
+{% put styles %}
+    <link rel="stylesheet" href="{{ 'assets/vendor/flexslider/flexslider.css'|theme }}">
+    <style>
+        .flexslider {
+            padding: 0;
+            border: none;
+        }
+    </style>
+{% endput %}
+
+{% put scripts %}
+    <script src="{{ 'assets/vendor/flexslider/jquery.flexslider-min.js'|theme }}"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $(".flexslider").flexslider({
+                animation: "slide",
+                slideshowSpeed: 8000,
+                pauseOnHover: false
+            });
+        });
+    </script>
+{% endput %}
+
+<div class="flexslider">
+    <ul class="slides">
+        <li>
+            <a href="/">
+                <img src="http://placehold.it/900x300/963/FFF&text=English+Space+Center"
+                     alt="English Space Center">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="http://placehold.it/900x300/963/FFF&text=English+Space+Center"
+                     alt="English Space Center">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="http://placehold.it/900x300/963/FFF&text=English+Space+Center"
+                     alt="English Space Center">
+            </a>
+        </li>
+    </ul>
+</div>

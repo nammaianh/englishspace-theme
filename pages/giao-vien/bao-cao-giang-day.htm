@@ -1,0 +1,26 @@
+title = "Báo cáo giảng dạy"
+url = "/giao-vien/bao-cao-giang-day"
+layout = "Default"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+==
+<div class="container">
+    
+    {% if not hasRole('Teacher') %}
+    
+        <h1>You are not allowed</h1>
+    
+    {% else %}
+    
+        <h1>Báo cáo giảng dạy</h1>
+        
+        <div class="embed-responsive"
+             style="margin-bottom: 30px; height: 800px;">
+            <iframe src="https://docs.google.com/a/osdesign.vn/forms/d/1Z-8kdnPRDs_dvWIz8a0TNXuDCUKXmPR9I6ZXln6gNqA/viewform"
+                    class="embed-responsive-item fit-width"></iframe>
+        </div>
+        
+    {% endif %}
+    
+</div>

@@ -1,0 +1,26 @@
+description = "HTML <head> block"
+==
+<meta charset="utf-8">
+
+<title>{{ this.page.title }}</title>
+
+<meta name="title" content="{{ this.page.metaTitle }}">
+<meta name="description" content="{{ this.page.metaDescription }}">
+<meta name="keywords" content="keywords that describe your site; use the same one in your title and description">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+{#-- Open Sans from Google Fonts --#}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic&subset=latin,vietnamese'
+      rel='stylesheet'
+      type='text/css'>
+
+{#-- Glyphicons Font (Bootstrap failed to load) --#}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+<link href="{{ [
+        'assets/vendor/bootstrap/css/bootstrap.min.css',
+        'assets/vendor/flexslider/flexslider.css',
+        'assets/css/styles.css',
+    ]|theme }}" rel="stylesheet">
+{% styles %}

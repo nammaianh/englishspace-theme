@@ -1,0 +1,20 @@
+description = "Sub menu of main navigation"
+==
+<ul class="{{ class }}">
+    {% for item in items %}
+        <li class="{{ (item.isActive or item.isChildActive) ? 'active' : '' }}">
+            
+            {% if item.items %}
+                <span class="btn-toggle-submenu pull-right">
+                    <span class="glyphicon glyphicon-chevron-down text-white"></span>
+                </span>
+            {% endif %}
+            
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            
+            {% if item.items %}
+                {% partial 'layout/sub-menu' items=item.items class='collapse' %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

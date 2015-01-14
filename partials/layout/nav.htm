@@ -1,0 +1,74 @@
+description = "Main Navigation block"
+
+[staticMenu]
+
+
+[session]
+security = "all"
+==
+<button id="btnNav" class="btn btn-success btn-lg">Open Menu</button>
+
+<nav class="main-nav-container collapse navbar-collapse" class="clearfix">
+    <div class="main-nav">
+        {#{% component 'staticMenu' %}#}
+        {% partial 'layout/sub-menu' items=menuItems %}
+    </div>
+    <div class="account-nav navbar-right bg-night-blue">
+        <ul>
+            {% if user %}
+                <li>
+                    <a href="{{ 'account-information'|page }}">Hello, {{ user.name }}</a>
+                </li>
+                {% if user and hasRole('Teacher') %}
+                    <li><a href="{{ 'giao-vien/bao-cao-giang-day'|page }}">Báo cáo giảng dạy</a></li>
+                    <li><a href="{{ 'giao-vien/diem-danh'|page }}">Điểm danh</a></li>
+                {% endif %}
+                <li>
+                    <a href="#"
+                       data-request="onLogout"
+                       data-request-data="redirect: '{{ '/'|app }}'">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ 'login'|app }}">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+{% put scripts %}
+    <script>
+        $("#btnNav").click(function() {
+            var nav = $(".main-nav-container");
+            
+            nav.collapse("toggle");
+            
+            if (isNavHidden) {
+                nav.css("display", "block");
+                $(this).text("Close Menu");
+            }
+            else {
+                nav.css("display", "none");
+                $(this).text("Open Menu");
+            }
+        });
+        
+        $(".main-nav .btn-toggle-submenu").click(function() {
+            var submenu = $('ul', $(this).parent()).first();
+            
+            submenu.collapse("toggle");
+            
+            if ($('.glyphicon', $(this)).hasClass("glyphicon-chevron-up")) {
+                $('.glyphicon', $(this))
+                    .removeClass("glyphicon-chevron-up")
+                    .addClass("glyphicon-chevron-down");
+            }
+            else {
+                $('.glyphicon', $(this))
+                    .removeClass("glyphicon-chevron-down")
+                    .addClass("glyphicon-chevron-up");
+            }
+        });
+    </script>
+{% endput %}

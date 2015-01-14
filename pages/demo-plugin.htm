@@ -1,0 +1,21 @@
+title = "Demo Plugin"
+url = "/demo-plugin"
+layout = "Default"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+
+[gaCode]
+code = "UA-1234-123"
+==
+<div class="container">
+    <br>
+    <div class="jumbotron">
+        <h1>Demo Plugin</h1>
+        <p>This is a plugin-creating demonstration</p>
+    </div>
+</div>
+
+{% put scripts %}
+    {% component 'gaCode' %}
+{% endput %}

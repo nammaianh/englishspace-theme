@@ -1,0 +1,41 @@
+description = "List of blog posts"
+==
+{#-- Path to Blog Post Page --#}
+{% set blogPostPagePath = 'blog/post' %}
+
+<div class="row">
+    
+    {% for post in posts %}
+    
+        {#-- Set image URL to default if the current post have no featured images --#}
+        {% if post.featured_images.isEmpty() %}
+            {% set imgUrl = 'http://placehold.it/600x400/EA2E49/333745&text=' ~ post.title %}
+        {% else %}
+            {% set imgUrl = post.featured_images.first().getPath() %}
+        {% endif %}
+        
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ blogPostPagePath|page({slug: post.slug}) }}">
+                <img src="{{ imgUrl }}"
+                     alt="{{ post.title }}"
+                     class="fit-width">
+                <h3>
+                    {{ post.title }}
+                </h3>
+            </a>
+            <div class="post-description text-justify">
+                {{ post.excerpt|raw }}
+            </div>
+        </div>
+        
+        {#-- Clearfixes --#}
+        {% set count = count + 1 %}
+        {% if count % 2 == 0 %}
+            <div class="clearfix visible-sm"></div>
+        {% elseif count % 3 == 0 %}
+            <div class="clearfix visible-md visible-lg"></div>
+        {% endif %}
+        
+    {% endfor %}
+    
+</div>

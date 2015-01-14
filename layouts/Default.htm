@@ -1,0 +1,66 @@
+description = "Default layout"
+
+[session]
+security = "all"
+==
+<?php
+function onStatusFormSubmit()
+{
+    // Get system's sender-email to have it send to itself
+    $mailSettings = \System\Models\MailSettings::instance();
+    $emailSendTo = $mailSettings->sender_email;
+
+    // Get request data    
+    $data = post();
+    $name = $data['name'];
+    $phone = $data['phone'];
+    $email = $data['email'];
+    $objective = $data['objective'];
+    $englishStatus = $data['english_status'];
+    
+    // Validate data
+    if (! $name ||
+        ! $phone ||
+        ! $email ||
+        ! $objective ||
+        ! $englishStatus) {
+        
+        // Define failure status
+        $status     = true;
+        $message    = 'All fields are required';
+    }
+    else {
+        // Send mail...
+        Mail::send('status_form_details', $data, function($message) use ($data, $emailSendTo)
+        {
+            $message->to($emailSendTo, $data['name']);
+        });
+        
+        // Define success status
+        $status     = true;
+        $message    = 'Succeeded';
+    }
+    
+    return [
+        'status'    => $status,
+        'message'   => $message
+    ];
+}
+?>
+==
+<!doctype html>
+<body>
+<head>
+    {% partial 'layout/head' %}
+</head>
+<body id="{{ bodyId }}" class="{{ bodyClass }}">
+    {% partial 'layout/header' %}
+    
+    {% partial 'layout/content' %}
+    
+    {% partial 'layout/footer' %}
+    
+    {% partial 'layout/scripts' %}
+</body>
+
+{% partial 'vChat' %}
