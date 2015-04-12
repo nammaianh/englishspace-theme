@@ -222,10 +222,10 @@
 }
 
 body {
-    line-height: 2em;
+ /*   line-height: 2em;
     font-family: "Lato", sans-serif;
     background-color: #FFF;
-    color: #333745;
+    color: #333745;*/
 }
 
 /*-- Home page's containers --*/
@@ -420,6 +420,12 @@ textarea {
 }
 .learning-program img:hover {
     transform: rotateZ(360deg);
+}
+
+@media (min-width: 768px) {
+    .learning-program-1 img {
+        padding: 30px;
+    }
 }
 
 /*@media (min-width: 1200px) {*/
